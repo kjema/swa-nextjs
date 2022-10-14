@@ -3,6 +3,7 @@ import type {
   InferGetServerSidePropsType,
 } from "next";
 import Head from "next/head";
+import useSWR from "swr";
 
 export async function getServerSideProps(context: GetServerSidePropsContext) {
   const data = { time: new Date().toISOString() };
@@ -11,10 +12,13 @@ export async function getServerSideProps(context: GetServerSidePropsContext) {
   };
 }
 
+const fetcher = (url: string) => fetch(url).then((res) => res.json());
+
 export default function About({
   time,
 }: InferGetServerSidePropsType<typeof getServerSideProps>) {
   const serverData = time;
+  const { data } = useSWR("/api/hello", fetcher);
   return (
     <div>
       <Head>
@@ -29,7 +33,10 @@ export default function About({
         </h1>
 
         <p>
-          The time on the server is <code>{time}</code>
+          The time on the server is <code>{serverData}</code>
+        </p>
+        <p>
+          <pre>{JSON.stringify(data, null, 2)}</pre>
         </p>
       </main>
     </div>
