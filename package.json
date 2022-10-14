@@ -3,7 +3,7 @@
   "version": "0.1.0",
   "private": true,
   "scripts": {
-    "build": "next build && next export",
+    "build": "next build",
     "dev": "next dev",
     "fix": "next lint --fix",
     "lint": "next lint",
@@ -24,6 +24,7 @@
     "eslint-config-prettier": "^8.5.0",
     "eslint-plugin-prettier": "^4.2.1",
     "prettier": "^2.7.1",
-    "serve": "^14.0.1"
+    "serve": "^14.0.1",
+    "typescript": "^4.8.4"
   }
 }
