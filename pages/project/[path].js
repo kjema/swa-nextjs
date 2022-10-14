@@ -4,9 +4,9 @@ import {
   BugIcon,
   GithubIcon,
   projectIcons,
-} from '../../components/Icons';
-import Link from 'next/link';
-import { projects } from '../../utils/projectsData';
+} from "../../components/Icons";
+import Link from "next/link";
+import { projects } from "../../utils/projectsData";
 
 function Project({ project }) {
   const Icon = projectIcons[project.id];
