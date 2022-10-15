@@ -1,0 +1,40 @@
+name: Playwright tests
+
+on:
+  push:
+    branches: ["main"]
+  pull_request:
+    branches: ["main"]
+
+jobs:
+  test:
+    timeout-minutes: 60
+    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        node-version: [14.x, 16.x, 18.x]
+    steps:
+      - uses: actions/checkout@v3
+      - uses: actions/setup-node@v3
+        with:
+          node-version: 16
+      - name: Install dependencies
+        run: npm ci
+      - name: Install Playwright Browsers
+        run: npx playwright install --with-deps
+      - name: Build production build
+        run: npm run build
+      - name: Run your tests
+        run: npm run test
+      - name: Get current date
+        id: date
+        run: echo "::set-output name=date::$(date +'%Y-%m-%d')"
+      - name: Upload HTML report as Artifact
+        uses: actions/upload-artifact@v3
+        env:
+          TAG_NAME: test-report-${{ steps.date.outputs.date }}
+        if: always()
+        with:
+          name: onDemand
+          path: pw-report/
+          retention-days: 30
