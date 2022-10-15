@@ -13,9 +13,6 @@ const config: PlaywrightTestConfig = {
     reuseExistingServer: !process.env.CI,
   },
   /* Reporter to use. See https://playwright.dev/docs/test-reporters */
-  reporter: [
-    ["html", { outputFolder: "pw-report" }],
-    ["json", { outputFolder: "pw-report", outputFile: "report.json" }],
-  ],
+  reporter: "html",
 };
 export default config;

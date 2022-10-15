@@ -10,9 +10,6 @@ jobs:
   test:
     timeout-minutes: 60
     runs-on: ubuntu-latest
-    strategy:
-      matrix:
-        node-version: [14.x, 16.x, 18.x]
     steps:
       - uses: actions/checkout@v3
       - uses: actions/setup-node@v3
@@ -35,6 +32,6 @@ jobs:
           TAG_NAME: test-report-${{ steps.date.outputs.date }}
         if: always()
         with:
-          name: onDemand
-          path: pw-report/
+          name: playwright-report
+          path: playwright-report/
           retention-days: 30

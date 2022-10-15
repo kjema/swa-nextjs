@@ -11,7 +11,6 @@
 # next.js
 /.next/
 /out/
-next-env.d.ts
 
 # production
 /build
@@ -30,9 +29,11 @@ yarn-error.log*
 .env.test.local
 .env.production.local
 
+# typescript
+*.tsbuildinfo
+next-env.d.ts
+
 # playwright
 /test-results/
 /playwright-report/
 /playwright/.cache/
-/pw-report/
-report.json
