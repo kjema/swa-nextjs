@@ -14,6 +14,7 @@ const UserViewLazy = dynamic(
   },
 );
 
+// eslint-disable-next-line @typescript-eslint/no-unused-vars
 export const getServerSideProps = (context: GetServerSidePropsContext) => {
   const date = new Date();
   const currentTime = new Intl.DateTimeFormat("sv-SE", {
