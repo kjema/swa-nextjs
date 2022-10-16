@@ -40,6 +40,7 @@ jobs:
           FUNCTION_LANGUAGE_VERSION: 16
           NODE_VERSION: "16"
           NODE_DEFAULT_VERSION: "16"
+          NEXT_TELEMETRY_DISABLED: 1
 
   close_pull_request_job:
     if: github.event_name == 'pull_request' && github.event.action == 'closed'
