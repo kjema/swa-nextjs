@@ -33,7 +33,7 @@ const Home: NextPage<
 > = ({ currentTime }) => {
   return (
     <Page>
-      <h1 className={s.title}>SWA + Next.js</h1>
+      <h1 className={s.title}>Next.js with Auth0 on SWA</h1>
       <p className={s.description}>
         Time from server: <code className={s.code}>{currentTime}</code>
       </p>
