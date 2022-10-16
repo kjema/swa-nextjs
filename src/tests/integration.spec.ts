@@ -1,11 +1,8 @@
 import { test, expect } from "@playwright/test";
 
-test("should have stats", async ({ page }) => {
-  // Start from the index page (the baseURL is set via the webServer in the playwright.config.ts)
+test("should redirect to auth0", async ({ page }) => {
   await page.goto("/");
-  // The new page should contain stats, there should be more than 100k starts for react
-  const title = await page.innerText("h1");
-  expect(title).toBe("SWA + Next.js");
+  await expect(page).toHaveTitle(/Marcus Test App/);
 });
 
 // test("should navigate to the react page", async ({ page }) => {
